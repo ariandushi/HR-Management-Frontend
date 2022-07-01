@@ -1,0 +1,54 @@
+<h2> Day Off Request List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> userId</th>
+            <th> Start Date</th>
+            <th> End Date</th>
+            <th> Reason</th>
+            <th> Report</th>
+            <th> Amount</th>
+            <th> Days Left</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let dayOff of daysOff"> -->
+            <td> {{ dayOff.dayOffId}}</td>
+            <td> {{ dayOff.startDate}}</td>
+            <td> {{ dayOff.endDate}}</td>
+            <td> {{ dayOff.reason}}</td>
+            <td> {{ dayOff.report}}</td>
+            <td> {{ dayOff.dayOffAmount}}</td>
+            <td> {{ dayOff.leaveDaysLeft}}</td>
+
+
+            <td>
+                <form (ngSubmit)="approveRequest()">
+                    <div class="form-group">
+                    <label>Reject Reason</label>
+                    <input type="text" class="form-control" id="rejectReason" 
+                    [(ngModel)] = "dayOff.rejectReason" name="rejectReason">
+                    </div>
+                    <!-- <label>User Id</label>
+                    <input type="text" name="userId" [(ngModel)]="user.userId"> -->
+                    
+                    <label>Day Off</label>
+                    <input type="text" name="dayOffId" [(ngModel)]="dayOff.dayOffId">
+                    <fieldset id="group3">
+                    <label>approve</label>
+                    <input type="radio" value="APPROVED" name="APPROVED" (change)="approveStatus($event.target)">
+                    <label>reject</label>
+                    <input type="radio" value="REJECTED" name="REJECTED" (change)="approveStatus($event.target)">
+                    </fieldset>
+
+                    <!-- <input type="submit" value="Send Request"> -->
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </form>
+                <!-- <button (click)="rejectRequest(user.userId)" class="btn btn-info">Reject</button> -->
+
+
+
+        </td>
+        <!-- </tr> -->
+    </tbody>
+</table>
